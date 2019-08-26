@@ -1,0 +1,39 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{Falconer}
+Kenneth Falconer, \emph{Fractal geometry: Mathematical foundations and
+  applications}, Wiley, 2003.
+
+\bibitem{MalabikaRob}
+Robert Fraser and Malabika Pramanik, \emph{Large sets avoiding patterns}, Anal.
+  PDE \textbf{11} (2018), 1083--1111.
+
+\bibitem{KatzTao}
+Nets~Hawk Katz and Terence Tao, \emph{Some connections between {Falconer's}
+  distance set conjecture, and sets of {Furstenburg} type}, New York J. Math.
+  \textbf{7} (2001), 149--187.
+
+\bibitem{KeletiDimOneSet}
+Tam\'{a}s Keleti, \emph{A 1-dimensional subset of the reals that intersects
+  each of its translates in at most a single point}, Real Anal. Exchange
+  \textbf{24} (1999), 843--845.
+
+\bibitem{Maga}
+P\'{e}ter Maga, \emph{Full dimensional sets without given patterns}, Real Anal.
+  Exchange \textbf{36} (2010), 79--90.
+
+\bibitem{Mathe}
+Andr\'{a}s M\'{a}th\'{e}, \emph{Sets of large dimension not containing
+  polynomial configurations}, Adv. Math. \textbf{316} (2017), 691--709.
+
+\bibitem{FalconerPaper}
+Kenneth Falconer, \emph{On a problem of Erd\"{o}s on Fractal Combinatorial Geometry}, J. Combin. Theory Ser. A. \textbf{59} (1992), 142-148.
+
+\end{thebibliography}
