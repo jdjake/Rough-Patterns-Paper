@@ -157,18 +157,20 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	Fix two distinct dyadic lengths $l$ and $s$, with $l > s$. Let $E \subseteq [0,1]^d$ be a nonempty, $l$ discretized set, and let $G\subset\RR^{dn}$ be a nonempty $s$ discretized set such that
 	%
 	\begin{equation}\label{ZsLarge}
-		(l/s)^d \leq \# \B^{dn}_s(G)  \leq \frac{1}{2}(l/s)^{dn}.
+		(l/s)^d \leq \# \B^{dn}_s(G)  \leq \frac{(l/s)^{dn}}{(4d)^{d(n-1)}}.
 	\end{equation} 
 	%
 	Then there exists a dyadic length $r \in [s,l]$ of size
 	%
 	\begin{equation} \label{rBound}
-	 	r \sim \left( l^{-d}s^{dn} \# \B^{dn}_s(G) \right)^{\frac{1}{d(n-1)}},
+	 	r \sim_d \left( l^{-d} s^{dn} \# \B^{dn}_s(G) \right)^{\frac{1}{d(n-1)}},
 	\end{equation}
 	%
 	and an $s$ discretized set $F \subset E$ satisfying the following three properties:
 	%
 	\begin{enumerate}
+		\item \label{disjointness} \emph{Disjointness}: The cubes in $\B^{dn}_s(F)$ are disjoint from one another.
+
 		\item\label{avoidanceItem} \emph{Avoidance}: For any $n$ distinct cubes $I_1, \dots, I_n \in \B^d_s(F)$, $I_1 \times \dots \times I_n \not \in \B^d_s(G)$.
 
 		\item\label{nonConcentrationItem} \emph{Non-Concentration}: For any $I \in \B_r^d(E)$, $\#(\B_s^d(F \cap I)) \leq 1$.
@@ -185,13 +187,13 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	Let $r$ be the smallest dyadic length at least as large as $R$, where
 	%
 	\begin{equation} \label{What-is-r}
-		R = \big(2 l^{-d}s^{dn}\# \B^{dn}_s(G)\big)^{\frac{1}{d(n-1)}}.
-	\end{equation} 
+		R = (4d) \big( l^{-d} s^{dn}\# \B^{dn}_s(G)\big)^{\frac{1}{d(n-1)}}.
+	\end{equation}
 	%
 	This choice of $r$ satisfies \eqref{rBound}. 
 	The inequalities in \eqref{ZsLarge} ensure that $r \in [s,l]$; more precisely, the left inequality in \eqref{ZsLarge} implies $R$ is bounded from below by $s$, and the right inequality implies $R$ is bounded from above by $l$. The minimality of $r$ ensures $s \leq r \leq l$.
 
-	For each $I \in \B_r^d(E)$, let $J_I$ be an element of $\B^d_s(I)$ chosen uniformly at random; these choices are independent as $I$ ranges over the elements of $\B_r^d(E)$. Define
+	For each $I \in \B_r^d(E)$, pick $J_I$ uniformly at random from $\mathcal{J}_I = \{ J \in \B^d_s(I) : J \subset I^\circ \}$; these choices are independent as $I$ ranges over the elements of $\B_r^d(E)$. Define
 	%
 	\[ 	U = \bigcup \left\{ J_I \setcolon I \in \B_r^d(E) \right\}, \]
 	%
@@ -199,49 +201,54 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	%
 	\[ \mathcal{K}(U) = \{ K \in \B^{dn}_s(G) \setcolon K \in U^n, \text{$K$ strongly non-diagonal} \}. \]
 	%
-	Note that the sets $U$ and $\mathcal{K}(U)$ are random sets, in the sense that they depend on the random variables $\{ J_I \}$. Define
+	Note that the sets $U$ and $\mathcal{K}(U)$ are random, in the sense that they depend on the random variables $\{ J_I \}$. Define
 	%
 	\begin{equation} \label{defnOfF}
-		F(U) = \bigcup \left( \B^d_s(U) - \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} \right),
+		F(U) = \bigcup \Big\{ \B^d_s(U) - \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} \Big\},
 	\end{equation}
 	%
 	where $\pi \colon \RR^{dn} \to \RR^d$ is the projection map $(x_1, \dots, x_n) \mapsto x_1$, for $x_i \in \RR^d$. Given any strongly non-diagonal cube $K = J_1 \times \cdots \times J_n \in \B_s^{dn}(G)$, either $K \not \in \B_s^{dn}(U^n)$, or $K \in \B_s^{dn}(U^n)$. If the former occurs then $K \not \in \B_s^{dn}(F(U)^n)$ since $F(U) \subset U$, so $\B_s^{dn}(F(U)^n) \subset \B_s^{dn}(U^n)$. If the latter occurs then $K \in \mathcal{K}(U)$, and since $\pi(K) = J_1$, $J_1 \not \in \B_s^d(F(U))$. In either case, $K \not \in \B_s^{dn}(F(U)^n)$, so $F(U)$ satisfies Property \ref{avoidanceItem}. By construction, $U$ contains at most one sub cube $J \in \B^{dn}_s$ for each $I \in \B^{dn}_l(E)$. Since $F(U) \subset U$, $F(U)$ satisfies Property \ref{nonConcentrationItem}. Thus the set $F(U)$ satisfies Properties \ref{avoidanceItem} and \ref{nonConcentrationItem} regardless of which values are assumed by the random variables $\{ J_I \}$. Next we will show that with non-zero probability, the set $F(U)$ satisfies Property \ref{largeSizeItem}. 
 
-	For each cube $J \in \B_s^d(E)$, there is a unique `parent' cube $J^* \in \B_r^d(E)$ such that $J \subset J^*$. Since $\# \B^d_s(J^*) = (r/s)^d$, and $J_{J^*}$ is chosen uniformly at random from $\B^d_s(J^*)$,
+	For each cube $J \in \B_s^d(E)$, there is a unique `parent' cube $I \in \B_r^d(E)$ such that $J \subset I$. Since each side of $I$ intersects $(r/s)^{d-1}$ cubes in $\B_s^d(I)$, and $I$ has $2d$ sides, so \eqref{What-is-r} implies
 	%
-	\[ \prob(J \subset U) = \prob(J_{J^*} = J) = (s/r)^d. \]
-	%
-	The cubes $\{ J_I \}$ are chosen independently, so if $J_1, \dots, J_n$ are distinct cubes in $\B^d_s(E)$, then 
-	%
-	\begin{equation}\label{jointprob}
-	\prob(J_1, \dots, J_n \in U) = \begin{cases} (s/r)^{dn} & \text{if $J_1, \dots, J_n$ have distinct parents,} \\ 0 & \text{otherwise}. \end{cases} 
+	\begin{equation} \label{interiorcubesbound}
+		\#(\mathcal{J}_I) \geq (r/s)^d - 2d (r/s)^{d-1} = (r/s)^d[1 - 2d(s/r)] \geq (1/2) \cdot (r/s)^d.
 	\end{equation}
 	%
-	Let $K = J_1 \times \dots \times J_n \in \B^{dn}_s(G)$. If the cubes $J_1, \dots, J_n$ are distinct, we deduce from \eqref{jointprob} that
+	Since $J_I$ is chosen uniformly at random from $\mathcal{J}_I$, \eqref{interiorcubesbound} shows
+	%
+	\[ \prob(J \subset U) = \prob(J_I = J) \leq 2 (s/r)^d. \]
+	%
+	The cubes $\{ J_I \}$ are chosen independently, so if $J_1, \dots, J_n$ are distinct cubes in $\B^d_s(E)$, then either the cubes $J_1, \dots, J_n$ have distinct parents, in which case we apply the independence of $J_I$ to conclude that $\prob(J_1, \dots, J_n \subset U) \leq 2^n (s/r)^{dn}$. If the cubes $J_1, \dots, J_n$ do not have distinct parents, Property \ref{nonConcentrationItem} implies $\prob(J_1, \dots, J_n \subset U) = 0$. In either case, we conclude that
+	%
+	\begin{equation}\label{jointprob}
+	\prob(J_1, \dots, J_n \in U) \leq 2^n (s/r)^{dn}.
+	\end{equation}
+	%
+	Let $K = J_1 \times \dots \times J_n$ be a strongly non-diagonal cube in $\B^{dn}_s(G)$. We deduce from \eqref{jointprob} that
 	%
 	\begin{equation}\label{probaKSubsetUn}
-		\prob(K \subset U^n) = \prob(J_1, \dots, J_n \in U) \leq (s/r)^{dn}.
+		\prob(K \subset U^n) = \prob(J_1, \dots, J_n \subset U) \leq 2^n (s/r)^{dn}.
 	\end{equation}
 	%
 	By \eqref{probaKSubsetUn}, linearity of expectation, and \eqref{What-is-r},
 	%
 	\begin{align*}
-		\expect(\# \mathcal{K}(U)) &= \sum_{K \in \B^{dn}_s(G)} \prob(K \subset U^n) \leq \# \B_s^{dn}(G) \cdot (s/r)^{dn}
-		\leq 0.5 \cdot (l/r)^d.
+		\expect(\# \mathcal{K}(U)) &= \sum_{K \in \B^{dn}_s(G)} \prob(K \subset U^n) \leq \# \B_s^{dn}(G) \cdot 2^n (s/r)^{dn} \leq (1/2) \cdot (l/r)^d.
 	\end{align*}
 	%
 	In particular, there exists at least one (non-random) set $U_0$ such that
 	%
 	\begin{equation}\label{KU0Small}
-		\# \mathcal{K}(U_0) \leq \expect(\# \mathcal{K}(U)) \leq 0.5 \cdot (l/r)^d.
+		\# \mathcal{K}(U_0) \leq \expect(\# \mathcal{K}(U)) \leq (1/2) \cdot (l/r)^d.
 	\end{equation}
 	%
-	 In other words, $F(U_0) \subset U_0$ is obtained by removing at most $0.5 \cdot (l/r)^d$ cubes in $\B^d_s$ from $U_0$. For each $I \in \B_l^d(E)$, we know that $\# \B_{s}^d(I \cap U_0) = (l/r)^d$. Combining this with \eqref{KU0Small}, we arrive at the estimate 
+	In other words, $F(U_0) \subset U_0$ is obtained by removing at most $(1/2) \cdot (l/r)^d$ cubes in $\B^d_s$ from $U_0$. For each $I \in \B_l^d(E)$, we know that $\# \B_{s}^d(I \cap U_0) = (l/r)^d$. Combining this with \eqref{KU0Small}, we arrive at the estimate 
 	%
 	\begin{align*}
-		\# \B_s^d(I \cap F(U_0)) &= \B_s^d(I \cap U_0) - \# \{ \pi(K) \setcolon K \in \mathcal{K}(U_0), \pi(K) \in F(U_0) \}\\
+		\# \B_s^d(I \cap F(U_0)) &= \B_s^d(I \cap U_0) - \# \{ \pi(K) \setcolon K \in \mathcal{K}(U_0), \pi(K) \in U_0 \}\\
 		&\geq \B_s^d(I \cap U_0) - \#(\mathcal{K}(U_0))\\
-		&\geq (l/r)^d - 0.5 \cdot (l/r)^d \geq 0.5 \cdot (l/r)^d
+		&\geq (l/r)^d - (1/2) \cdot (l/r)^d \geq (1/2) \cdot (l/r)^d
 	\end{align*}  
 	%
 	In other words, $F(U_0)$ satisfies Property \ref{largeSizeItem}. Setting $F = F(U_0)$ completes the proof.
@@ -291,7 +298,7 @@ In this section we construct the set $X$ from Theorem \ref{mainTheorem} by apply
 
 		\item\label{RapidDecayProperty} \emph{Rapid Decay}: For all $k > 1$,
 			\begin{align}
-				l_k^{dn-\alpha-\varepsilon_k} & \leq 0.5 \cdot l_{k-1}^{dn} \label{coverBoundRequirement}, \\
+				l_k^{dn-\alpha-\varepsilon_k} & \leq (1/4d)^{d(n-1)} \cdot l_{k-1}^{dn} \label{coverBoundRequirement}, \\
 				l_k^{\epsilon_k} & \leq l_{k-1}^{2d}\label{quadDecayRequirement}.
 			\end{align}
 	\end{enumerate}
@@ -340,7 +347,7 @@ All that remains is to apply the discrete lemma to choose the sets $X_k$.
 	%
 	\begin{align}
 		& r_k \lesssim l_k^{(dn-\alpha -\epsilon_k)/d(n-1)},\label{rkSizeBound}\\
-		& \# \B^d_{l_k}(X_k \cap I) \geq 0.5 \cdot (l_{k-1}/r_k)^d \quad \text{for each}\ I\in \B_{l_{k-1}}^d(X_{k-1}), \label{manyIkInIkm1}\\
+		& \# \B^d_{l_k}(X_k \cap I) \geq (1/2) \cdot (l_{k-1}/r_k)^d \quad \text{for each}\ I\in \B_{l_{k-1}}^d(X_{k-1}), \label{manyIkInIkm1}\\
 		&\# \B^d_{l_k}(X_k \cap I) \leq 1 \quad \text{ for each}\ I \in \B_{r_{k}}^d(X_{k-1}).\label{XkWellDistributed}
 	\end{align}
 \end{lemma}
@@ -348,17 +355,17 @@ All that remains is to apply the discrete lemma to choose the sets $X_k$.
 	We construct $X_k$ by induction, using Lemma \ref{discretelemma} at each step. Set $X_0=[0,1]^d$. Next, suppose that the sets $X_0, \ldots, X_{k-1}$ have been defined. Our goal is to apply Lemma \ref{discretelemma} to $E = X_{k-1}$ and $G = Z_k$ with $l = l_{k-1}$ and $s = l_k$. This will be possible once we verify the hypothesis \eqref{ZsLarge}, which in this case takes the form
 	%
 	\begin{equation}
-		(l_{k-1}/l_k)^d \leq \#\B_{l_k}^{dn}(Z_k) \leq 0.5 \cdot (l_{k-1}/l_k)^{dn}. \label{need-to-check}
+		(l_{k-1}/l_k)^d \leq \#\B_{l_k}^{dn}(Z_k) \leq (1/4d)^{d(n-1)} \cdot (l_{k-1}/l_k)^{dn}. \label{need-to-check}
 	\end{equation}
 	%
-	The right hand side follows from Property \ref{SparsityProperty} of Lemma \ref{coveringLemma} and \eqref{quadDecayRequirement}. 	On the other hand, Property \ref{SparsityProperty} and the fact that $l_{k-1} \leq 1$ implies that
+	The right hand side follows from Property \ref{SparsityProperty} of Lemma \ref{coveringLemma} and \eqref{coverBoundRequirement}. On the other hand, Property \ref{SparsityProperty} of Lemma \ref{coveringLemma} and the fact that $l_{k-1} \leq 1$ implies that
 	%
 	\[ (l_{k-1}/l_k)^d\leq l_{k}^{-d}\leq \#\B_{l_k}^{dn}(Z_k), \]
 	%
 	establishing the left inequality in \eqref{need-to-check}. Applying Lemma \ref{discretelemma} as described above now produces a dyadic length
 	%
 	\begin{equation}\label{definOfr}
-		r \sim \big(l_{k-1}^{-d}l_k^{dn} \# \B^{dn}_{l_k}(Z_k)\big)^{\frac{1}{d(n-1)}} 
+		r \sim_d \big(l_{k-1}^{-d}l_k^{dn} \# \B^{dn}_{l_k}(Z_k)\big)^{\frac{1}{d(n-1)}} 
 	\end{equation}
 	%
 	and an $l_k$ discretized set $F \subset X_{k-1}$. The set $F$ satisfies Properties \ref{avoidanceItem}, \ref{nonConcentrationItem}, and \ref{largeSizeItem} from the statement of Lemma \ref{discretelemma}. Define $r_k=r$ and $X_k=F$. The estimate  \eqref{rkSizeBound} on $r_k$ follows from \eqref{definOfr} using the known bounds \eqref{quadDecayRequirement} and \eqref{coveringOfBdnlZk}:
@@ -378,30 +385,24 @@ Now we have defined the sets $\{ X_k \}$, we set $X = \bigcap X_k$. Since $X_k$ 
 
 \section{Dimension Bounds}\label{dimensionsection}
 
-To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Definition \ref{defFrostmanItem}, we will do this by constructing a Frostman measure of appropriate dimension supported on $X$. We start by recursively defining a positive function $f: \bigcup_{i = 1}^\infty \B^d_{l_i} \to [0,1]$. Set $f([0,1]^d) = 1$, and $f(I) = 0$ for every other $I \in \B^d_{l_0}$. Suppose now that $f(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}$, and let $I \in \B^d_{l_k}$. Consider the unique `parent cube' $I^* \in \B^d_{l_{k-1}}$ for which $I \subset I^*$. Define
+To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Definition \ref{defFrostmanItem}, we will do this by constructing a Frostman measure of appropriate dimension supported on $X$. We start by recursively defining a positive function $\mu: \bigcup_{i = 1}^\infty \B^d_{l_i} \to [0,1]$. Set $\mu([0,1]^d) = 1$, and $\mu(I) = 0$ for every other $I \in \B^d_{l_0}$. Suppose now that $\mu(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}$, and let $I \in \B^d_{l_k}$. Consider the unique `parent cube' $I^* \in \B^d_{l_{k-1}}$ for which $I \subset I^*$. Define
 %
 \begin{equation} \label{muRecurse}
-	f(I) = \begin{cases} {f(I^*)}/{\# \B^d_{l_k}(X_k \cap I^*)} & \textrm{if}\ I \subset X_k,\\
+	\mu(I) = \begin{cases} {\mu(I^*)}/{\# \B^d_{l_k}(X_k \cap I^*)} & \textrm{if}\ I \subset X_k,\\
 0 & \textrm{otherwise}. \end{cases}
 \end{equation}
 %
-Observe that $f(I) > 0$ if and only if $I \cap X \neq \emptyset$, and for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d$, 
+Observe that $\mu(I) > 0$ if and only if $I \cap X \neq \emptyset$, and for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d$, 
 %
 \begin{equation}\label{muBreakDown}
-	\sum \{ f(I) \setcolon I \in \B_{l_k}^d(I^*) \} = \sum \{ f(I) \setcolon I \in \B_{l_k}^d(X_k\cap I^*) \} = f(I^*).
+	\sum \{ \mu(I) \setcolon I \in \B_{l_k}^d(I^*) \} = \sum \{ \mu(I) \setcolon I \in \B_{l_k}^d(X_k\cap I^*) \} = \mu(I^*).
 \end{equation}
 %
 In particular, for each index $k$ we have
 %
-\[ \sum_{I \in \B_{l_k}^d} f(I)=1. \]
-% \cite[Proposition 1.7]{Falconer}
-By a standard argument involving weak convergence (CITE PRAMANIK FRASER HERE?), there exists a Borel probability measure $\mu$ supported on $\bigcap X_k = X$, such that for each $I \in \bigcup_{i = 1}^\infty \B^d_{l_i}$, $\mu(I) \geq f(I)$, and for any Borel set $E$, and any $k \geq 0$,
+\[ \sum_{I \in \B_{l_k}^d} \mu(I)=1. \]
 %
-\begin{equation} \label{BorelConstructionProperty}
-	\mu(E) \leq \sum \{ f(I) \setcolon I \in \B_{l_k}(E(l_k)) \}.
-\end{equation}
-%
-To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
+By a standard argument \cite[Proposition 1.7]{Falconer}, $\mu$ extends to a Borel probability measure $\mu$ supported on $\bigcap X_k = X$. To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
 
 \begin{lemma}\label{massSomeScales}
 	For each $k \geq 1$, if $I \in \B^d_{l_k}$,
@@ -409,17 +410,9 @@ To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a 
 	\[ \mu(I) \lesssim l_k^{\frac{dn-\alpha}{n-1}- \eta_k}, \quad \text{ where } \quad \eta_k = \frac{n+1}{2(n-1)} \cdot \epsilon_k \searrow 0 \text{ as } k \rightarrow \infty. \]
 \end{lemma}
 \begin{proof}
-	Let $I \in \B^d_{l_k}$ and let $I^* \in \B^d_{l_{k-1}}$ be the parent cube of $I$. If $f(I) > 0$, then $I \subset X_k$, and combining \eqref{muRecurse}, \eqref{manyIkInIkm1}, and \eqref{rkSizeBound} with the fact that $f(I^*) \leq 1$, we obtain
+	Let $I \in \B^d_{l_k}$ and let $I^* \in \B^d_{l_{k-1}}$ be the parent cube of $I$. If $\mu(I) > 0$, then $I \subset X_k$, and combining \eqref{muRecurse}, \eqref{manyIkInIkm1}, and \eqref{rkSizeBound} with the fact that $\mu(I^*) \leq 1$, we obtain
 	%
-	\begin{equation} \label{midLemmaEquation}
-	\begin{split}
-		f(I) &= \frac{f(I^*)}{\# \B^d_{l_k}(X_k \cap I^*)} \leq 2 \left( \frac{r_k}{l_{k-1}} \right)^d \lesssim \frac{l_k^{\frac{dn - \alpha - \epsilon_k}{n-1}}}{l_{k-1}^d} \leq l_k^{\frac{dn - \alpha}{n-1} - \eta_k} (l_k^{\epsilon_k/2} / l_{k-1}^d) \leq l_k^{\frac{dn - \alpha}{n-1} - \eta_k}.
-	\end{split}
-	\end{equation}
-	%
-	Given any cube $I_0 \in \B^d_{l_k}$, we have $\# \B^d_{l_k}(I_0(l_k)) \lesssim 1$, so we can apply \eqref{BorelConstructionProperty} to conclude that
-	%
-	\[ \mu(I_0) \leq \sum \{ f(I) \setcolon I \in \B^d_{l_k}(I(l_k)) \} \lesssim l_k^{\frac{dn - \alpha}{n-1} - \eta_k}. \qedhere \]
+	\[ \mu(I) = \frac{\mu(I^*)}{\# \B^d_{l_k}(X_k \cap I^*)} \leq 2 \left( \frac{r_k}{l_{k-1}} \right)^d \lesssim \frac{l_k^{\frac{dn - \alpha - \epsilon_k}{n-1}}}{l_{k-1}^d} \leq l_k^{\frac{dn - \alpha}{n-1} - \eta_k} \left( \frac{l_k^{\epsilon_k/2}}{l_{k-1}^d} \right) \leq l_k^{\frac{dn - \alpha}{n-1} - \eta_k}. \qedhere \]
 \end{proof}
 
 \begin{corollary}\label{muAtScaleRk}
@@ -432,13 +425,9 @@ To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a 
 		\#(\B^d_{l_k}(I(r_k) \cap X_k)) \lesssim 1.
 	\end{equation}
 	%
-	For each $J \in \B^d_{l_k}(I(r_k) \cap X_k)$, let $J^* \in \B^d_{l_{k-1}}$ denote the parent cube of $J$. Equation \eqref{midLemmaEquation} of Lemma \ref{massSomeScales} combined with \eqref{muRecurse} and \eqref{manyIkInIkm1} implies
+	For each $I \in \B^d_{l_k}(I(r_k) \cap X_k)$, let $I^* \in \B^d_{l_{k-1}}$ denote the parent cube of $I$. Working as in Lemma \ref{massSomeScales}, but using it's conclusion combined with \eqref{muRecurse} and \eqref{manyIkInIkm1} we find
 	%
-	\[ f(J) = \frac{f(J^*)}{\# \B_{l_k}^d(X_k \cap J^*)} \lesssim (r_k/l_{k-1})^d l_{k-1}^{\frac{dn - \alpha}{n-1} - \eta_k}. \]
-	%
-	Thus \eqref{BorelConstructionProperty} and \eqref{oneBound} show that
-	%
-	\[ \mu(I) \lesssim (r_k/l_{k-1})^d l_{k-1}^{\frac{dn - \alpha}{n-1} - \eta_k}. \qedhere \]
+	\[ \mu(I) = \frac{\mu(I^*)}{\# \B_{l_k}^d(X_k \cap I^*)} \lesssim (r_k/l_{k-1})^d l_{k-1}^{\frac{dn - \alpha}{n-1} - \eta_k}. \qedhere \]
 \end{proof}
 
 Lemma \ref{massSomeScales} and Corollary \ref{muAtScaleRk} allow us to control the behavior of $\mu$ at all scales. 
