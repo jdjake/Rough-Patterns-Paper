@@ -7,9 +7,9 @@
 \providecommand{\href}[2]{#2}
 \begin{thebibliography}{1}
 
-\bibitem{Falconer}
-Kenneth Falconer, \emph{Fractal geometry: Mathematical foundations and
-  applications}, Wiley, 2003.
+
+\bibitem{Mattila}
+Pertti Mattila, \emph{Geometric of Sets and Measures in Euclidean Spaces}, Cambridge University Press (1995).
 
 \bibitem{MalabikaRob}
 Robert Fraser and Malabika Pramanik, \emph{Large sets avoiding patterns}, Anal.

@@ -154,13 +154,13 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 %
 
 \begin{lemma} \label{discretelemma}
-	Fix two distinct dyadic lengths $l$ and $s$, with $l > s$. Let $E \subseteq [0,1]^d$ be a nonempty, $l$ discretized set, and let $G\subset\RR^{dn}$ be a nonempty $s$ discretized set such that
+	Fix two distinct dyadic lengths $l$ and $s$, with $l > 4ds$. Let $E \subseteq [0,1]^d$ be a nonempty, $l$ discretized set, and let $G\subset\RR^{dn}$ be a nonempty $s$ discretized set such that
 	%
 	\begin{equation}\label{ZsLarge}
 		(l/s)^d \leq \# \B^{dn}_s(G)  \leq \frac{(l/s)^{dn}}{(4d)^{d(n-1)}}.
 	\end{equation} 
 	%
-	Then there exists a dyadic length $r \in [s,l]$ of size
+	Then there exists a dyadic length $r \in [4ds,l]$ of size
 	%
 	\begin{equation} \label{rBound}
 	 	r \sim_d \left( l^{-d} s^{dn} \# \B^{dn}_s(G) \right)^{\frac{1}{d(n-1)}},
@@ -191,7 +191,7 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	\end{equation}
 	%
 	This choice of $r$ satisfies \eqref{rBound}. 
-	The inequalities in \eqref{ZsLarge} ensure that $r \in [s,l]$; more precisely, the left inequality in \eqref{ZsLarge} implies $R$ is bounded from below by $s$, and the right inequality implies $R$ is bounded from above by $l$. The minimality of $r$ ensures $s \leq r \leq l$.
+	The inequalities in \eqref{ZsLarge} ensure that $r \in [4ds,l]$; more precisely, the left inequality in \eqref{ZsLarge} implies $R$ is bounded from below by $4ds$, and the right inequality implies $R$ is bounded from above by $l$. The minimality of $r$ ensures $4ds \leq r \leq l$.
 
 	For each $I \in \B_r^d(E)$, pick $J_I$ uniformly at random from $\mathcal{J}_I = \{ J \in \B^d_s(I) : J \subset I^\circ \}$; these choices are independent as $I$ ranges over the elements of $\B_r^d(E)$. Define
 	%
@@ -207,7 +207,7 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 		F(U) = \bigcup \Big\{ \B^d_s(U) - \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} \Big\},
 	\end{equation}
 	%
-	where $\pi \colon \RR^{dn} \to \RR^d$ is the projection map $(x_1, \dots, x_n) \mapsto x_1$, for $x_i \in \RR^d$. Given any strongly non-diagonal cube $K = J_1 \times \cdots \times J_n \in \B_s^{dn}(G)$, either $K \not \in \B_s^{dn}(U^n)$, or $K \in \B_s^{dn}(U^n)$. If the former occurs then $K \not \in \B_s^{dn}(F(U)^n)$ since $F(U) \subset U$, so $\B_s^{dn}(F(U)^n) \subset \B_s^{dn}(U^n)$. If the latter occurs then $K \in \mathcal{K}(U)$, and since $\pi(K) = J_1$, $J_1 \not \in \B_s^d(F(U))$. In either case, $K \not \in \B_s^{dn}(F(U)^n)$, so $F(U)$ satisfies Property \ref{avoidanceItem}. By construction, $U$ contains at most one sub cube $J \in \B^{dn}_s$ for each $I \in \B^{dn}_l(E)$. Since $F(U) \subset U$, $F(U)$ satisfies Property \ref{nonConcentrationItem}. Thus the set $F(U)$ satisfies Properties \ref{avoidanceItem} and \ref{nonConcentrationItem} regardless of which values are assumed by the random variables $\{ J_I \}$. Next we will show that with non-zero probability, the set $F(U)$ satisfies Property \ref{largeSizeItem}. 
+	where $\pi \colon \RR^{dn} \to \RR^d$ is the projection map $(x_1, \dots, x_n) \mapsto x_1$, for $x_i \in \RR^d$. Since the cubes of $\B^d_s(U)$ are disjoint from one another, and $F(U) \subset U$, $F(U)$ satisfies Property \ref{disjointness}. Given any strongly non-diagonal cube $K = J_1 \times \cdots \times J_n \in \B_s^{dn}(G)$, either $K \not \in \B_s^{dn}(U^n)$, or $K \in \B_s^{dn}(U^n)$. If the former occurs then $K \not \in \B_s^{dn}(F(U)^n)$ since $F(U) \subset U$, so $\B_s^{dn}(F(U)^n) \subset \B_s^{dn}(U^n)$. If the latter occurs then $K \in \mathcal{K}(U)$, and since $\pi(K) = J_1$, $J_1 \not \in \B_s^d(F(U))$. In either case, $K \not \in \B_s^{dn}(F(U)^n)$, so $F(U)$ satisfies Property \ref{avoidanceItem}. By construction, $U$ contains at most one sub cube $J \in \B^{dn}_s$ for each $I \in \B^{dn}_l(E)$. Since $F(U) \subset U$, $F(U)$ satisfies Property \ref{nonConcentrationItem}. Thus the set $F(U)$ satisfies Properties \ref{disjointness}, \ref{avoidanceItem}, and \ref{nonConcentrationItem} regardless of which values are assumed by the random variables $\{ J_I \}$. Next we will show that with non-zero probability, the set $F(U)$ satisfies Property \ref{largeSizeItem}. 
 
 	For each cube $J \in \B_s^d(E)$, there is a unique `parent' cube $I \in \B_r^d(E)$ such that $J \subset I$. Since each side of $I$ intersects $(r/s)^{d-1}$ cubes in $\B_s^d(I)$, and $I$ has $2d$ sides, so \eqref{What-is-r} implies
 	%
@@ -222,7 +222,7 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	The cubes $\{ J_I \}$ are chosen independently, so if $J_1, \dots, J_n$ are distinct cubes in $\B^d_s(E)$, then either the cubes $J_1, \dots, J_n$ have distinct parents, in which case we apply the independence of $J_I$ to conclude that $\prob(J_1, \dots, J_n \subset U) \leq 2^n (s/r)^{dn}$. If the cubes $J_1, \dots, J_n$ do not have distinct parents, Property \ref{nonConcentrationItem} implies $\prob(J_1, \dots, J_n \subset U) = 0$. In either case, we conclude that
 	%
 	\begin{equation}\label{jointprob}
-	\prob(J_1, \dots, J_n \in U) \leq 2^n (s/r)^{dn}.
+	\prob(J_1, \dots, J_n \subset U) \leq 2^n (s/r)^{dn}.
 	\end{equation}
 	%
 	Let $K = J_1 \times \dots \times J_n$ be a strongly non-diagonal cube in $\B^{dn}_s(G)$. We deduce from \eqref{jointprob} that
@@ -385,24 +385,27 @@ Now we have defined the sets $\{ X_k \}$, we set $X = \bigcap X_k$. Since $X_k$ 
 
 \section{Dimension Bounds}\label{dimensionsection}
 
-To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Definition \ref{defFrostmanItem}, we will do this by constructing a Frostman measure of appropriate dimension supported on $X$. We start by recursively defining a positive function $\mu: \bigcup_{i = 1}^\infty \B^d_{l_i} \to [0,1]$. Set $\mu([0,1]^d) = 1$, and $\mu(I) = 0$ for every other $I \in \B^d_{l_0}$. Suppose now that $\mu(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}$, and let $I \in \B^d_{l_k}$. Consider the unique `parent cube' $I^* \in \B^d_{l_{k-1}}$ for which $I \subset I^*$. Define
+To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Definition \ref{defFrostmanItem}, we will do this by constructing a Frostman measure of appropriate dimension supported on $X$. We start by recursively defining a positive function $w: \bigcup_{i = 1}^\infty \B^d_{l_i}(X_i) \to [0,1]$. Set $w([0,1]^d) = 1$, and $w(I) = 0$ for every other $I \in \B^d_{l_0}$. Suppose now that $w(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}(X_{k-1})$, and let $I \in \B^d_{l_k}(X_k)$. Consider the unique `parent cube' $I^* \in \B^d_{l_{k-1}}(X_{k-1})$ for which $I \subset I^*$. Define
 %
 \begin{equation} \label{muRecurse}
-	\mu(I) = \begin{cases} {\mu(I^*)}/{\# \B^d_{l_k}(X_k \cap I^*)} & \textrm{if}\ I \subset X_k,\\
-0 & \textrm{otherwise}. \end{cases}
+	w(I) = \frac{w(I^*)}{\# \B^d_{l_k}(X_k \cap I^*)}.
 \end{equation}
 %
-Observe that $\mu(I) > 0$ if and only if $I \cap X \neq \emptyset$, and for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d$, 
+Observe that for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d(X_{k-1})$, 
 %
 \begin{equation}\label{muBreakDown}
-	\sum \{ \mu(I) \setcolon I \in \B_{l_k}^d(I^*) \} = \sum \{ \mu(I) \setcolon I \in \B_{l_k}^d(X_k\cap I^*) \} = \mu(I^*).
+	\sum_{I \in \B_{l_k}^d(I^* \cap X_k)} w(I) = w(I^*).
 \end{equation}
 %
 In particular, for each index $k$ we have
 %
-\[ \sum_{I \in \B_{l_k}^d} \mu(I)=1. \]
+\[ \sum_{I \in \B_{l_k}^d(X_k)} w(I) = 1. \]
 %
-By a standard argument \cite[Proposition 1.7]{Falconer}, $\mu$ extends to a Borel probability measure $\mu$ supported on $\bigcap X_k = X$. To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
+We now apply a standard procedure due to Caratheodory, modelled after the approach in \cite{Mattila}, Theorem 4.2, to obtain a Borel measure supported on $X$. For any $k \geq 1$ and $E \subset X$, we define an exterior measure
+%
+\[ \mu_k(E) = \inf \left\{ \sum_{i = 1}^\infty w(I_i) : E \subset \bigcup_{i = 1}^\infty I_i, I_i \in \bigcup_{j = k}^\infty \B_{l_j}^d(X_j) \right\}, \]
+%
+and then take $\mu(E) = \lim_{k \to \infty} \mu_k(E)$. It is easy to see that $\mu$ is a metric exterior measure, so all Borel sets are measurable with respect to $\mu$. For each $k$, the cubes in $\B_{l_k}^d(X_k)$ are disjoint from one another, and so any cube in $\bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$ is relatively open in $X$. In particular, this fact, combined with \eqref{muBreakDown} and the fact that $I \cap X$ is compact for any $I \in \bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$, lead to a simple proof that $\mu(I) = w(I)$ for each $I$. To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
 
 \begin{lemma}\label{massSomeScales}
 	For each $k \geq 1$, if $I \in \B^d_{l_k}$,
@@ -500,7 +503,7 @@ In \cite{MalabikaRob}, Fraser and the second author prove that there exists a se
 Let $f\colon [0,1] \to \RR^{n-1}$ be $C^1$.  Then there is a set $X \subset [0,1]$ of Hausdorff dimension $1/2$ so that the set $\{(t,f(t)) \setcolon t\in X\}$ does not contain the vertices of an isosceles triangle.
 \end{corollary} 
 \begin{proof}[Proof of Corollary \ref{C1IsoscelesCor}]
-The graph of any $C^1$ function can be locally expressed, after possibly a translation and rotation, as the graph of a Lipschitz function with small Lipschitz constant. In particular, there exists an interval $I\subset[0,1]$ of positive length so that the graph of $f$ restricted to $I$, after being suitably translated, rotated, and dilated, is the graph of a Lipschitz function $g\colon [0,1] \to \RR^{n-1}$ with Lipschitz constant at most $1/2$. Since isosceles triangles remain invariant under these transformations, the corollary is a consequence of Theorem \ref{C1IsoscelesThm}.  
+The graph of any $C^1$ function can be locally expressed, after possibly a translation and rotation, as the graph of a Lipschitz function with small Lipschitz constant. In particular, there exists an interval $I\subset[0,1]$ of positive length so that the graph of $f$ restricted to $I$, after being suitably translated and rotated, is the graph of a Lipschitz function $g\colon [0,1] \to \RR^{n-1}$ with Lipschitz constant at most $1/2$. Since isosceles triangles remain invariant under translations and rotations, the corollary is a consequence of Theorem \ref{C1IsoscelesThm}.  
 \end{proof} 
 
 \begin{proof}[Proof of Theorem \ref{C1IsoscelesThm}]
@@ -581,14 +584,22 @@ Fix $0 < \delta < 1$. Note that
 		(f(y_3) - f(y_3')) \cdot (f(x_2) - f(x_1)) &\leq \| f \|_{\text{Lip}}^2 |y_3 - y_3'| |x_2 - x_1| \\ &=  \| f \|_{\text{Lip}}^2 \cdot (k+1) \delta \cdot |y_3 - y_3'|.
 	\end{split}
 	\end{align}
-Combining \eqref{yylowbound} and \eqref{yyupbound} and rearranging, we see that
-	\begin{equation}\label{y3minusY3Prime} |y_3 - y_3'| \leq \frac{6}{(k+1)(1 - \| f \|_{\text{Lip}}^2)}  \lesssim\frac{1}{k+1},
-	 \end{equation} 
+	%
+	Combining \eqref{yylowbound} and \eqref{yyupbound} and rearranging, we see that
+	%
+	\begin{equation} \label{y3minusY3Prime}
+		|y_3 - y_3'| \leq \frac{6}{(k+1)(1 - \| f \|_{\text{Lip}}^2)}  \lesssim\frac{1}{k+1},
+	\end{equation} 
+	%
 	where the implicit constant depends only on $\| f \|_{\text{Lip}}$ (and blows up as $\| f \|_{\text{Lip}}$ approaches $1$).  We conclude that
-	\begin{equation}\label{coveringNumberBoundLargeK} \# \B^3_\delta(W(\delta) \cap I_1 \times I_2 \times [0,1]) \lesssim \frac{1}{k+1},\end{equation} 
-which holds uniformly over any value of $k$.
+	%
+	\begin{equation}\label{coveringNumberBoundLargeK}
+		\# \B^3_\delta(W(\delta) \cap I_1 \times I_2 \times [0,1]) \lesssim \frac{\delta^{-1}}{k+1},
+	\end{equation}
+	%
+	which holds uniformly over any value of $k$ and $\delta$.
 
-We are now ready to bound the sum from \eqref{deltaCoveringWSum}. Note that for each value of $k$, there are at most $2/\delta$ pairs $(I_1,I_2)$ with $d(I_1,I_2) = k \delta$. Indeed, there are $1/\delta$ choices for $I_1$ and then at most two choices for $I_2$. Equation  \eqref{coveringNumberBoundLargeK} shows 
+	We are now ready to bound the sum from \eqref{deltaCoveringWSum}. Note that for each value of $k$, there are at most $2/\delta$ pairs $(I_1,I_2)$ with $d(I_1,I_2) = k \delta$. Indeed, there are $1/\delta$ choices for $I_1$ and then at most two choices for $I_2$. Equation  \eqref{coveringNumberBoundLargeK} shows 
 	%
 	\begin{align*}
 		\# \B^3_\delta(W(\delta)) = \sum_{k = 0}^{1/\delta} \sum_{\substack{I_1, I_2 \in \B^1_\delta[0,1]\\d(I_1,I_2) = k\delta}} \# \B^3_\delta(W(\delta) \cap I_1 \times I_2 \times [0,1])
