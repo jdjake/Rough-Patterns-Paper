@@ -46,14 +46,14 @@
 \maketitle
 
 \begin{abstract}
-	The pattern avoidance problem seeks to construct a set $X\subset \RR^d$ with large dimension that avoids a prescribed pattern. Examples of such patterns include three-term arithmetic progressions (solutions to $x_1 - 2x_2 + x_3 = 0$), or more general patterns of the form $f(x_1, \dots, x_n) = 0$. Previous work on the subject has considered patterns described by polynomials, or by functions $f$ satisfying certain regularity conditions. We consider the case of `rough' patterns, not prescribed by functional zeros.
+	The pattern avoidance problem seeks to construct a set $X\subset \RR^d$ with large dimension that avoids a prescribed pattern. Examples of such patterns include three-term arithmetic progressions (solutions to $x_1 - 2x_2 + x_3 = 0$), geometric structures such as simplices, or more general patterns of the form $f(x_1, \dots, x_n) = 0$. Previous work on the subject has considered patterns described by polynomials, or by functions $f$ satisfying certain regularity conditions. We consider the case of `rough' patterns, not prescribed by functional zeros.
 
 	There are several problems that fit into the framework of rough pattern avoidance. As a first application, if $Y \subset \RR^d$ is a set with Minkowski dimension $\alpha$, we construct a set $X$ with Hausdorff dimension $d-\alpha$ such that $X+X$ is disjoint from $Y$. As a second application, if $C$ is a Lipschitz curve with Lipschitz constant less than one, we construct a set $X \subset C$ of dimension $1/2$ that does not contain the vertices of an isosceles triangle.
 \end{abstract}
 
 
 
-A major question in modern geometric measure theory is whether sufficiently large sets are forced to contain copies of certain patterns. Intuitively, one expects the answer to be yes, and many results in the literature support this intuition. For example, the Lebesgue density theorem implies that a set of positive Lebesgue measure contains an affine copy of every finite set. And any set $X \subset \RR^2$ with Hausdorff dimension exceeding one must contain three collinear points. On the other hand, there is a distinct genre of results that challenges this intuition. Keleti \cite{KeletiDimOneSet} constructs a set $X \subset \RR$ that avoids all solutions of the equation $x_2 - x_1 = x_4 - x_3$ with $x_1 < x_2 \leq x_3 < x_4$, and which consequently does not contain any nontrivial arithmetic progression. Given any triangle, Falconer \cite{FalconerPaper} constructs a full dimensional planar set that does not contain any similar copy of the vertex set of the triangle. Maga \cite{Maga} provides a set $X \subset \RR^2$ of full Hausdorff dimension such that no four points in $X$ form the vertices of a parallelogram. The pattern avoidance problem (informally stated) asks: for a given pattern, how large can the dimension of a set $X \subset \RR^d$ be before it is forced to contain a copy of this pattern? 
+A major question in modern geometric measure theory is whether sufficiently large sets are forced to contain copies of certain patterns. Intuitively, one expects the answer to be yes, and many results in the literature support this intuition. For example, the Lebesgue density theorem implies that a set of positive Lebesgue measure contains an affine copy of every finite set. Similarly, any set $X \subset \RR^2$ with Hausdorff dimension exceeding one must contain three collinear points. On the other hand, there is a distinct genre of results that challenges this intuition. Keleti \cite{KeletiDimOneSet} constructs a full-dimensional set $X \subset \RR$ that avoids all solutions of the equation $x_2 - x_1 = x_4 - x_3$ with $x_1 < x_2 \leq x_3 < x_4$, and which consequently does not contain any nontrivial arithmetic progression. Given any triangle, Falconer \cite{FalconerPaper} constructs a full dimensional planar set that does not contain any similar copy of the vertex set of the triangle. Maga \cite{Maga} provides a set $X \subset \RR^2$ of full Hausdorff dimension such that no four points in $X$ form the vertices of a parallelogram. The pattern avoidance problem (informally stated) asks: for a given pattern, how large can the dimension of a set $X \subset \RR^d$ be before it is forced to contain a copy of this pattern? 
 
 One way to formalize the notion of a pattern is as follows. If $d \geq 1$ and $n \geq 2$ are integers, we define a pattern to be a set $Z \subset \RR^{dn}$. We say that a set $X \subset \RR^d$ avoids the pattern $Z$ if for every $n$-tuple of distinct points $x_1, \ldots, x_n\in X$, we have $(x_1,\ldots,x_n) \not \in Z$. For example, a set $X \subset \RR^2$ does not contain three collinear points if and only if it avoids the pattern
 %
@@ -69,13 +69,13 @@ A number of recent articles have established pattern avoidance results for incre
 %
 
 \begin{theorem}\label{mainTheorem}
-	Let $\alpha \geq d$, and let $Z \subset \RR^{dn}$ be a countable union of compact sets, each with lower Minkowski dimension at most $\alpha$. Then there exists a set $X \subset [0,1]^d$ with Hausdorff dimension at least $(nd - \alpha)/(n-1)$ such that whenever $x_1, \dots, x_n \in X$ are distinct, we have $(x_1, \dots, x_n) \not \in Z$.
+	Let $\alpha \geq d$, and let $Z \subset \RR^{dn}$ be a countable union of compact sets, each with lower Minkowski dimension at most $\alpha$. Then there exists a compact set $X \subset [0,1]^d$ with Hausdorff dimension at least $(nd - \alpha)/(n-1)$ such that whenever $x_1, \dots, x_n \in X$ are distinct, we have $(x_1, \dots, x_n) \not \in Z$.
 \end{theorem}
 
 \begin{remarks}
 	\
 	\begin{enumerate}[1.]
-		\item When $\alpha < d$, the pattern avoidance problem is trivial, since $X = [0,1]^d - \pi(Z)$ is full dimensional and solves the pattern avoidance problem, where $\pi(x_1, \dots, x_n) = x_1$ is a projection map from $\RR^{dn}$ to $\RR^d$. We will therefore assume that $\alpha \geq d$ in our proof of the theorem. Note that obtaining a full dimensional set in the case $\alpha = d$, however, is still interesting.
+		\item When $\alpha < d$, the pattern avoidance problem is trivial, since $X = [0,1]^d - \pi(Z)$ is full dimensional and solves the pattern avoidance problem, where $\pi(x_1, \dots, x_n) = x_1$ is a projection map from $\RR^{dn}$ to $\RR^d$. We will therefore assume that $\alpha \geq d$ in our proof of the theorem. Note that obtaining a full dimensional avoiding set in the case $\alpha = d$, however, is still interesting.
 
 		\item Theorem \ref{mainTheorem} is trivial when $\alpha = dn$, since we can set $X = \emptyset$. We will therefore assume that $\alpha < dn$ in our proof of the theorem.
 
@@ -85,7 +85,7 @@ A number of recent articles have established pattern avoidance results for incre
 	\end{enumerate}
 \end{remarks}
 
-The set $X$ in Theorem \ref{mainTheorem} is obtained by constructing a sequence of approximations to $X$, each of which avoids the pattern $Z$ at different scales. For a sequence of lengths $l_k \searrow 0$, we construct a nested family of sets $\{ X_k \}$, where $X_k$ is a union of cubes of sidelength $l_k$ that avoids $Z$ at scales close to $l_k$. The set $X=\bigcap X_k$ avoids $Z$ at all scales. While this proof strategy is not new, our method for constructing the sets $\{ X_k \}$ has several innovations that simplify the analysis of the resulting set $X = \bigcap X_k$. In particular, through a probabilistic selection process we are able to avoid the complicated queuing techniques used in \cite{KeletiDimOneSet} and \cite{MalabikaRob}, that required storage of data from each step of the iterated construction, to be retrieved at a much later stage of the construction process.
+The set $X$ in Theorem \ref{mainTheorem} is obtained by constructing a sequence of approximations to $X$, each of which avoids the pattern $Z$ at different scales. For a sequence of lengths $l_k \searrow 0$, we construct a nested family of compact sets $\{ X_k \}$, where $X_k$ is a union of closed cubes of sidelength $l_k$ that avoids $Z$ at scales close to $l_k$. The set $X=\bigcap X_k$ avoids $Z$ at all scales. While this proof strategy is not new, our method for constructing the sets $\{ X_k \}$ has several innovations that simplify the analysis of the resulting set $X = \bigcap X_k$. In particular, through a probabilistic selection process we are able to avoid the complicated queuing techniques used in \cite{KeletiDimOneSet} and \cite{MalabikaRob}, that required storage of data from each step of the iterated construction, to be retrieved at a much later stage of the construction process.
 
 At the same time, our construction continues to share certain features with \cite{MalabikaRob}. For example, between each pair of scales $l_{k-1}$ and $l_{k}$, we carefully select an intermediate scale $r_k$. The set $X_k \subset X_{k-1}$ avoids $Z$ at scale $l_k$, and it is `evenly distributed' at scale $r_k$; the set $X_k$ is a union of cubes of length $l_k$ whose midpoints resemble (a large subset of) generalized arithmetic progression of step size $r_k$. The details of a single step of this construction are described in Section \ref{discretesection}. In Section \ref{discretizationsection}, we explain how the length scales $l_k$ and $r_k$ for $X$ are chosen, and prove its avoidance property. In Section \ref{dimensionsection} we analyze the size of $X$ and show that it satisfies the conclusions of Theorem \ref{mainTheorem}.
 
@@ -107,7 +107,7 @@ At the same time, our construction continues to share certain features with \cit
 	%
 	\[ E(l) = \bigcup \{ I \in \B^d_l \setcolon I \cap E \neq \emptyset \}. \]
 	%
-	Then $E(l)$ is the smallest $l$ discretized set with $E \subset E(l)^\circ$. Given an $l$ discretized set $E$, we let
+	Then $E(l)$ is the smallest $l$ discretized set with $E \subset E(l)^\circ$. Here and throughout the paper $A^{\circ}$ will denote the interior of the set $A$. Given an $l$ discretized set $E$, we let
 	%
 	\[ \B^d_l(E) = \{ I \in \B^d_l \setcolon I \subset E \}. \]
 	%
@@ -121,13 +121,13 @@ At the same time, our construction continues to share certain features with \cit
 	%
 	\[ H^\alpha_\delta(E) = \inf \left\{ \sum_{k = 1}^\infty l_k^\alpha \setcolon E \subset \bigcup_{k = 1}^\infty I_k \right\}, \]
 	%
-	where the infinum is taken over all families of cubes $\{ I_k \}$ such that for all $k$, $I_k \in \B^d_{l_k}$, and $l_k$ is a dyadic length with $l_k \leq \delta$. The $\alpha$-dimensional dyadic Hausdorff measure $H^\alpha$ on $\RR^d$ is $H^\alpha(E) = \lim_{\delta \to 0} H_\delta^\alpha(E)$, and the {\it Hausdorff dimension} of a set $E$ is $\hausdim(E) = \inf \{ \alpha \geq 0 \setcolon H^\alpha(E) = 0 \}$.
+	where the infinum is taken over all families of cubes $\{ I_k \}$ such that for each $k$, there exists a dyadic length $l_k \leq \delta$ such that $I_k \in \B^d_{l_k}$. The $\alpha$-dimensional dyadic Hausdorff measure $H^\alpha$ on $\RR^d$ is $H^\alpha(E) = \lim_{\delta \to 0} H_\delta^\alpha(E)$, and the {\it Hausdorff dimension} of a set $E$ is $\hausdim(E) = \inf \{ \alpha \geq 0 \setcolon H^\alpha(E) = 0 \}$.
 
 	\item\label{defStronglyNonDiagonal} Given $K \in \B^{dn}_l$, we can decompose $K$ as $K_1 \times \cdots \times K_n$ for unique cubes $K_1, \dots, K_n \in \B_l^d$. We say $K$ is {\it strongly non-diagonal} if the cubes $K_1, \dots, K_n$ are distinct. Strongly non-diagonal cubes will play an important role in Section \ref{discretesection}, when we solve a discrete version of Theorem \ref{mainTheorem}.
 
 	\item\label{defStrongCover} Adopting the terminology of \cite{KatzTao}, we say a collection of sets $\{ U_k \}$ is a {\it strong cover} of a set $E$ if $E \subset \limsup U_k$, which means every element of $E$ is contained in infinitely many of the sets $U_k$. This idea will be useful in Section \ref{discretizationsection}.  
 
-	\item\label{defFrostmanItem} A {\it Frostman measure} of dimension $\alpha$ is a non-zero compactly supported probability measure $\mu$ on $\RR^d$ such that for every dyadic cube $I$ of sidelength $l$, $\mu(I) \lesssim l^\alpha$. Note that a measure $\mu$ satisfies this inequality for every cube $I$ if and only if it satisfies the inequality for cubes whose sidelengths are dyadic lengths. {\it Frostman's lemma} says that
+	\item\label{defFrostmanItem} A {\it Frostman measure} of dimension $\alpha$ is a non-zero compactly supported probability measure $\mu$ on $\RR^d$ such that for every dyadic cube $I$ of sidelength $l$, $\mu(I) \lesssim l^\alpha$. Note that a measure $\mu$ satisfies this inequality for every dyadic cube $I$ if and only if it satisfies a similar inequality, possibly with a different implicit constant, for all cubes $I$. {\it Frostman's lemma} says that
 	\[ \hausdim(E) = \sup \left\{ \alpha \setcolon
 		\begin{array}{c}
 			\text{there is a Frostman measure of}\\
@@ -147,10 +147,9 @@ At the same time, our construction continues to share certain features with \cit
 
 In this section we describe a method for avoiding $Z$ at a single scale. We apply this technique in Section \ref{discretizationsection} at many scales to construct a set $X$ avoiding $Z$ at all scales. This single scale avoidance technique is the core building block of our construction, and the efficiency with which we can avoid $Z$ at a single scale has direct consequences on the Hausdorff dimension of the set $X$ obtained in Theorem \ref{mainTheorem}.
 
-At a single scale, we solve a discretized version of the problem, where all sets are unions of cubes at two dyadic lengths $l > s$. In this discrete setting, $Z$ is replaced by a discretized version of itself, a union of cubes in $\B^{dn}_s$ denoted by $G$. Given a set $E$, which is a union of cubes in $\B_l^d$, our goal is to construct a set $F \subset E$ that is a union of cubes in $\B_s^d$, such that $F^n$ is disjoint from strongly non-diagonal cubes (see Definition \ref{defStronglyNonDiagonal}) in $\B^{dn}_s(G)$. Using the setup introduced at the end of the introduction, we will later choose $l = l_k$, $s = l_{k+1}$, and $E = X_k$. The set $X_{k+1}$ will be defined as the set $F$ constructed.
+At a single scale, we solve a discretized version of the problem, where all sets are unions of cubes at two dyadic lengths $l > s$. In this discrete setting, $Z$ is replaced by a discretized version of itself, namely a union of cubes in $\B^{dn}_s$ denoted by $G$. Given a set $E$, which is a union of cubes in $\B_l^d$, our goal is to construct a set $F \subset E$ that is a union of cubes in $\B_s^d$, such that $F^n$ is disjoint from strongly non-diagonal cubes (see Definition \ref{defStronglyNonDiagonal}) in $\B^{dn}_s(G)$. Using the setup mentioned at the end of the introduction, we will later choose $l = l_k$, $s = l_{k+1}$, and $E = X_k$. The set $X_{k+1}$ will be defined as the set $F$ constructed.
 
-In order to ensure the final set $X$ obtained in Theorem \ref{mainTheorem} has large Hausdorff dimension regardless of the rapid decay of scales used in the construction of $X$, it is crucial that $F$ is uniformly distributed at intermediate scales between $l$ and $s$.
-We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermediate scale $r \in [s,l]$, and distributing $F$ as evenly among these intermediate sub-cubes as possible. This is possible assuming a mild regularity condition on the number of cubes in $G$, i.e. Equation \eqref{ZsLarge}.
+In order to ensure the final set $X$ obtained in Theorem \ref{mainTheorem} has large Hausdorff dimension regardless of the rapid decay of scales used in the construction of $X$, it is crucial that $F$ is uniformly distributed at intermediate scales between $l$ and $s$. We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermediate scale $r \in [s,l]$, and distributing $F$ as evenly among these intermediate sub-cubes as possible. We achieve this by assuming a mild regularity condition on the number of cubes in $G$;  see equation \eqref{ZsLarge} below.
 %
 
 \begin{lemma} \label{discretelemma}
@@ -166,21 +165,21 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	 	r \sim_d \left( l^{-d} s^{dn} \# \B^{dn}_s(G) \right)^{\frac{1}{d(n-1)}},
 	\end{equation}
 	%
-	and an $s$ discretized set $F \subset E$ satisfying the following three properties:
+	and an $s$ discretized set $F \subset E$ satisfying the following four properties:
 	%
 	\begin{enumerate}
 		\item \label{disjointness} \emph{Disjointness}: The cubes in $\B^{dn}_s(F)$ are disjoint from one another.
 
-		\item\label{avoidanceItem} \emph{Avoidance}: For any $n$ distinct cubes $I_1, \dots, I_n \in \B^d_s(F)$, $I_1 \times \dots \times I_n \not \in \B^d_s(G)$.
+		\item\label{avoidanceItem} \emph{Avoidance}: For any $n$ distinct cubes $J_1, \dots, J_n \in \B^d_s(F)$, $J_1 \times \dots \times J_n \not \in \B^d_s(G)$.
 
-		\item\label{nonConcentrationItem} \emph{Non-Concentration}: For any $I \in \B_r^d(E)$, $\#(\B_s^d(F \cap I)) \leq 1$.
+		\item\label{nonConcentrationItem} \emph{Non-concentration}: For any $I \in \B_r^d(E)$, $\#(\B_s^d(F \cap I)) \leq 1$.
 
 		\item\label{largeSizeItem} \emph{Large Size}: For every $I \in \B^d_l(E)$, $\#(\B^d_s(F \cap I)) \geq \#(\B^d_r(E \cap I))/2$.
 	\end{enumerate}
 \end{lemma}
 
 \begin{remark}
-	Property \ref{avoidanceItem} says that $F$ avoids strongly non-diagonal cubes in $\B^{dn}_s(G)$. Properties \ref{nonConcentrationItem} and \ref{largeSizeItem} together imply that for every $I \in \B^d_l(E)$, at least half of the cubes in $\B_r^d(I)$ contribute a single sub-cube of sidelength $s$ to $F$; the rest contribute none. 
+	Property \ref{avoidanceItem} says that $F$ avoids strongly non-diagonal cubes in $\B^{dn}_s(G)$.  Properties \ref{nonConcentrationItem} and \ref{largeSizeItem} together imply that for every $I \in \B^d_l(E)$, at least half of the cubes in $\B_r^d(I)$ contribute a single sub-cube of sidelength $s$ to $F$; the rest contribute none. One of the many consequences of Property \ref{largeSizeItem} is that every sidelength $l$ cube in $E$ contains a  sidelength $s$ cube in $F$; in other words, no sidelength $l$ cube in $E$ ``dies out".
 \end{remark}
 
 \begin{proof}
@@ -193,7 +192,7 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	This choice of $r$ satisfies \eqref{rBound}. 
 	The inequalities in \eqref{ZsLarge} ensure that $r \in [4ds,l]$; more precisely, the left inequality in \eqref{ZsLarge} implies $R$ is bounded from below by $4ds$, and the right inequality implies $R$ is bounded from above by $l$. The minimality of $r$ ensures $4ds \leq r \leq l$.
 
-	For each $I \in \B_r^d(E)$, pick $J_I$ uniformly at random from $\mathcal{J}_I = \{ J \in \B^d_s(I) : J \subset I^\circ \}$; these choices are independent as $I$ ranges over the elements of $\B_r^d(E)$. Define
+	For each $I \in \B_r^d(E)$, pick $J_I$ uniformly at random from $\mathcal{J}_I = \{ J \in \B^d_s(I) : J \subset I^\circ \}$; these choices are independent as $I$ ranges over the elements of $\B_r^d(E)$. Since two distinct dyadic cubes $I$ and $I'$ in $\B_r^d(E)$ have disjoint interiors, we have that $J_I \cap J_{I'} = \emptyset$. Define
 	%
 	\[ 	U = \bigcup \left\{ J_I \setcolon I \in \B_r^d(E) \right\}, \]
 	%
@@ -204,12 +203,18 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	Note that the sets $U$ and $\mathcal{K}(U)$ are random, in the sense that they depend on the random variables $\{ J_I \}$. Define
 	%
 	\begin{equation} \label{defnOfF}
-		F(U) = \bigcup \Big\{ \B^d_s(U) - \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} \Big\},
+		F(U) = U - \bigcup \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} = \bigcup \Big\{ \B^d_s(U) - \{ \pi(K) \setcolon K \in \mathcal{K}(U) \} \Big\},
 	\end{equation}
 	%
-	where $\pi \colon \RR^{dn} \to \RR^d$ is the projection map $(x_1, \dots, x_n) \mapsto x_1$, for $x_i \in \RR^d$. Since the cubes of $\B^d_s(U)$ are disjoint from one another, and $F(U) \subset U$, $F(U)$ satisfies Property \ref{disjointness}. Given any strongly non-diagonal cube $K = J_1 \times \cdots \times J_n \in \B_s^{dn}(G)$, either $K \not \in \B_s^{dn}(U^n)$, or $K \in \B_s^{dn}(U^n)$. If the former occurs then $K \not \in \B_s^{dn}(F(U)^n)$ since $F(U) \subset U$, so $\B_s^{dn}(F(U)^n) \subset \B_s^{dn}(U^n)$. If the latter occurs then $K \in \mathcal{K}(U)$, and since $\pi(K) = J_1$, $J_1 \not \in \B_s^d(F(U))$. In either case, $K \not \in \B_s^{dn}(F(U)^n)$, so $F(U)$ satisfies Property \ref{avoidanceItem}. By construction, $U$ contains at most one sub cube $J \in \B^{dn}_s$ for each $I \in \B^{dn}_l(E)$. Since $F(U) \subset U$, $F(U)$ satisfies Property \ref{nonConcentrationItem}. Thus the set $F(U)$ satisfies Properties \ref{disjointness}, \ref{avoidanceItem}, and \ref{nonConcentrationItem} regardless of which values are assumed by the random variables $\{ J_I \}$. Next we will show that with non-zero probability, the set $F(U)$ satisfies Property \ref{largeSizeItem}. 
+	where $\pi \colon \RR^{dn} \to \RR^d$ is the projection map $(x_1, \dots, x_n) \mapsto x_1$, for $x_i \in \RR^d$. We will verify that $F = F(U)$ always obeys the first three properties claimed in Lemma \ref{discretelemma}, and satisfies Property \ref{largeSizeItem} with non-zero probability.
+	
+	Our construction ensures that $U$ is $s$ discretized, and that the cubes of $\B^d_s(U)$ are disjoint from one another. Since $F(U) \subset U$, it follows that $F(U)$ satisfies Property \ref{disjointness}. 
+	
+	Given any strongly non-diagonal cube $K = J_1 \times \cdots \times J_n \in \B_s^{dn}(G)$, either $K \not \in \B_s^{dn}(U^n)$, or $K \in \B_s^{dn}(U^n)$. If the former occurs then $K \not \in \B_s^{dn}(F(U)^n)$ since $F(U) \subset U$, so $\B_s^{dn}(F(U)^n) \subset \B_s^{dn}(U^n)$. If the latter occurs then $K \in \mathcal{K}(U)$, and since $\pi(K) = J_1$, $J_1 \not \in \B_s^d(F(U))$. In either case, $K \not \in \B_s^{dn}(F(U)^n)$, so $F(U)$ satisfies Property \ref{avoidanceItem}. 
+	
+	By construction, $U$ contains at most one sub cube $J \in \B^{dn}_s$ for each $I \in \B^{dn}_l(E)$. Since $F(U) \subset U$, $F(U)$ satisfies Property \ref{nonConcentrationItem}.
 
-	For each cube $J \in \B_s^d(E)$, there is a unique `parent' cube $I \in \B_r^d(E)$ such that $J \subset I$. Since each side of $I$ intersects $(r/s)^{d-1}$ cubes in $\B_s^d(I)$, and $I$ has $2d$ sides, so \eqref{What-is-r} implies
+	It remains to verify that with non-zero probability, the set $F(U)$ satisfies Property \ref{largeSizeItem}. For each cube $J \in \B_s^d(E)$, there is a unique `parent' cube $I \in \B_r^d(E)$ such that $J \subset I$. Since each $(d-1)$-dimensional face of $I$ intersects $(r/s)^{d-1}$ cubes in $\B_s^d(I)$, and $I$ has $2d$ faces, so the relation $r \geq 4ds$ implies
 	%
 	\begin{equation} \label{interiorcubesbound}
 		\#(\mathcal{J}_I) \geq (r/s)^d - 2d (r/s)^{d-1} = (r/s)^d[1 - 2d(s/r)] \geq (1/2) \cdot (r/s)^d.
@@ -231,11 +236,12 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 		\prob(K \subset U^n) = \prob(J_1, \dots, J_n \subset U) \leq 2^n (s/r)^{dn}.
 	\end{equation}
 	%
-	By \eqref{probaKSubsetUn}, linearity of expectation, and \eqref{What-is-r},
+	By \eqref{probaKSubsetUn} and the linearity of expectation,
 	%
 	\begin{align*}
 		\expect(\# \mathcal{K}(U)) &= \sum_{K \in \B^{dn}_s(G)} \prob(K \subset U^n) \leq \# \B_s^{dn}(G) \cdot 2^n (s/r)^{dn} \leq (1/2) \cdot (l/r)^d.
 	\end{align*}
+	 The last inequality can be deduced from \eqref{What-is-r} and the condition $r \geq 4ds$. 
 	%
 	In particular, there exists at least one (non-random) set $U_0$ such that
 	%
@@ -248,10 +254,12 @@ We achieve this by decomposing $E$ into sub-cubes in $\B^d_r$ for some intermedi
 	\begin{align*}
 		\# \B_s^d(I \cap F(U_0)) &= \B_s^d(I \cap U_0) - \# \{ \pi(K) \setcolon K \in \mathcal{K}(U_0), \pi(K) \in U_0 \}\\
 		&\geq \B_s^d(I \cap U_0) - \#(\mathcal{K}(U_0))\\
-		&\geq (l/r)^d - (1/2) \cdot (l/r)^d \geq (1/2) \cdot (l/r)^d
+		&\geq (l/r)^d - (1/2) \cdot (l/r)^d \geq (1/2) \cdot (l/r)^d.
 	\end{align*}  
 	%
-	In other words, $F(U_0)$ satisfies Property \ref{largeSizeItem}. Setting $F = F(U_0)$ completes the proof.
+	In other words, $F(U_0)$ satisfies Property \ref{largeSizeItem}.
+
+	The set $F(U)$ satisfies Properties \ref{disjointness}, \ref{avoidanceItem}, and \ref{nonConcentrationItem} regardless of which values are assumed by the random variables $\{ J_I \}$. Furthermore, there is at least one set $U_0$ such that $F(U_0)$ satisfies Property \ref{largeSizeItem}. Setting $F = F(U_0)$ completes the proof.
 \end{proof}
 
 \begin{remarks}
@@ -304,7 +312,7 @@ In this section we construct the set $X$ from Theorem \ref{mainTheorem} by apply
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	We can write $Z \subset \bigcup_{i = 1}^\infty Y_i$, with $\lowminkdim(Y_i) \leq \alpha$ for each $i$. Without loss of generality, we may assume that for any $l$,
+	By hypothesis, there exists a sequence of sets $\{Y_i\}$ so that $Z \subset \bigcup_{i = 1}^\infty Y_i$, and $\lowminkdim(Y_i) \leq \alpha$ for each index $i$. Without loss of generality, we may assume that for each length $l$,
 	%
 	\begin{equation}\label{YPrimeLowerBound}
 		\# \B^{nd}_l(Y_i(l)) \geq l^{-d}.
@@ -314,9 +322,9 @@ In this section we construct the set $X$ from Theorem \ref{mainTheorem} by apply
 	%
 	\[ H = \{ (x_1,\dots, x_1) \setcolon x_1 \in [0,1]^d \}. \]
 	%
-	and replace $Y_i$ with $Y_i \cup H$. Since $\lowminkdim(Y_i) \leq \alpha$ for each index $i$. Let $\{ i_k \}$ be a sequence of integers that repeats each integer infinitely often.
+	and replace $Y_i$ with $Y_i \cup H$. Let $\{ i_k \}$ be a sequence of integers that repeats each integer infinitely often.
 
-	The lengths $\{ l_k \}$ and sets $\{ Z_k \}$ are defined inductively. As a base case, set $l_0 = 1$ and $Z_0 = [0,1]^{nd}$. Suppose that the lengths $l_0, \ldots, l_{k-1}$ have been chosen. Since $\lowminkdim(Y_{i_k}) \leq \alpha$, and $\varepsilon_k > 0$, Definition \ref{defnMinkowskiDim} implies that there exists arbitrarily small lengths $l$ that satisfy
+	The lengths $\{ l_k \}$ and sets $\{ Z_k \}$ are defined inductively. As a base case, set $l_0 = 1$ and $Z_0 = [0,1]^{nd}$. Suppose that the lengths $l_0, \ldots, l_{k-1}$ have been chosen. Since $\lowminkdim(Y_{i_k}) \leq \alpha$, and $\varepsilon_k > 0$, Definition \ref{defnMinkowskiDim} implies that there exists arbitrarily small dyadic lengths $l$ that satisfy
 	%
 	\begin{equation} \label{coveringOfBdnlZk}
 		\# \B^{dn}_l(Y_{i_k}(l)) \leq l^{-\alpha - \varepsilon_k}.
@@ -327,7 +335,7 @@ In this section we construct the set $X$ from Theorem \ref{mainTheorem} by apply
 	It remains to verify that the sets $\{ Z_k^\circ \}$ strongly cover $Z$. Fix a point $z \in Z$. Then there exists an index $i$ such that $z \in Y_i$, and there is a subsequence $k_1, k_2, \dots$ such that $i_{k_j} = i$ for each $j$. But then $z \in Y_i \subset Z_{i_{k_j}}^\circ$, so $z$ is contained in each of the sets $Z_{i_{k_j}}^\circ$, and thus $z \in \limsup Z_i^\circ$.
 \end{proof}
 
-To construct $X$, we consider a nested, decreasing family of sets $\{ X_k \}$, where each $X_k$ is an $l_k$ discretized subset of $\RR^d$. We then set $X = \bigcap X_k$. The goal is to choose $X_k$ such that $X_k^n$ does not contain any {\it strongly non diagonal} cubes in $Z_k$.
+To construct $X$, we consider a nested, decreasing family of compact sets $\{ X_k \}$, where each $X_k$ is an $l_k$ discretized subset of $\RR^d$. We then set $X = \bigcap X_k$. Then $X$ is a nonempty compact set. The goal is to choose $X_k$ such that $X_k^n$ does not contain any {\it strongly non diagonal} cubes in $Z_k$.
 
 \begin{lemma} \label{stronglydiagonal}
 	Let $\{ l_k \}$ be a sequence of positive numbers converging to zero, and let $Z \subset \RR^{dn}$. Let $\{ Z_k \}$ be a sequence of sets, with each $Z_k$ an $l_k$ discretized subset of $\RR^{dn}$, such that the interiors $\{ Z_k^\circ \}$ strongly cover $Z$. For each index $k$, let $X_k$ be an $l_k$ discretized subset of $\RR^d$. Suppose that for each $k$, $\B^{dn}_{l_k}(X_k^n) \cap \B^{dn}_{l_k}(Z_k)$ contains no strongly non diagonal cubes. If $X = \bigcap X_k$, then for any distinct $x_1, \dots, x_n \in X$, we have $(x_1, \dots, x_n) \not \in Z$.
@@ -337,7 +345,7 @@ To construct $X$, we consider a nested, decreasing family of sets $\{ X_k \}$, w
 	%
 	\[ \Delta = \{ (w_1, \dots, w_n) \in \RR^{dn} \setcolon \text{there exists $i \neq j$ such that $w_i = w_j$} \}. \]
 	%
-	Then $d(\Delta,z) > 0$, where $d$ is the Hausdorff distance between $\Delta$ and $z$. Since $\{ Z_k \}$ strongly covers $Z$, there is a subsequence $\{ k_m \}$ such that $z \in Z_{k_m}^\circ$ for every index $m$. Since $l_k$ converges to 0 and thus $l_{k_m}$ converges to $0$, if $m$ is sufficiently large then $\sqrt{dn} \cdot l_{k_m} < d(\Delta,z)$. Note that $\sqrt{dn} \cdot l_{km}$ is the diameter of a cube in $\B_{l_{k_m}}^{dn}$. For such a choice of $m$, any cube $I \in \B^d_{l_{k_m}}$ which contains $z$ is strongly non-diagonal. Furthermore, $z \in Z_{k_m}^\circ$. Since $X_{k_m}$ and $Z_{k_m}$ share no cube which contains $z$, this implies $z \not \in X_{k_m}$. In particular, this means $z \not\in X^n$.
+	Then $d(\Delta,z) > 0$, where $d$ is the Hausdorff distance between $\Delta$ and $z$. Since $\{ Z_k^\circ \}$ strongly covers $Z$, there is a subsequence $\{ k_m \}$ such that $z \in Z_{k_m}^\circ$ for every index $m$. Since $l_k$ converges to 0 and thus $l_{k_m}$ converges to $0$, if $m$ is sufficiently large then $\sqrt{dn} \cdot l_{k_m} < d(\Delta,z)$. Note that $\sqrt{dn} \cdot l_{km}$ is the diameter of a cube in $\B_{l_{k_m}}^{dn}$. For such a choice of $m$, any cube $I \in \B^d_{l_{k_m}}$ which contains $z$ is strongly non-diagonal. Furthermore, $z \in Z_{k_m}^\circ$. Since $X_{k_m}$ and $Z_{k_m}$ share no cube which contains $z$, this implies $z \not \in X_{k_m}$. In particular, this means $z \not\in X^n$.
 \end{proof}
 
 All that remains is to apply the discrete lemma to choose the sets $X_k$.
@@ -385,28 +393,36 @@ Now we have defined the sets $\{ X_k \}$, we set $X = \bigcap X_k$. Since $X_k$ 
 
 \section{Dimension Bounds}\label{dimensionsection}
 
-To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Definition \ref{defFrostmanItem}, we will do this by constructing a Frostman measure of appropriate dimension supported on $X$. We start by recursively defining a positive function $w: \bigcup_{i = 1}^\infty \B^d_{l_i}(X_i) \to [0,1]$. Set $w([0,1]^d) = 1$, and $w(I) = 0$ for every other $I \in \B^d_{l_0}$. Suppose now that $w(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}(X_{k-1})$, and let $I \in \B^d_{l_k}(X_k)$. Consider the unique `parent cube' $I^* \in \B^d_{l_{k-1}}(X_{k-1})$ for which $I \subset I^*$. Define
+To complete the proof of Theorem \ref{mainTheorem}, we must show that $\hausdim(X) \geq (dn - \alpha)/(n - 1)$. In view of Item \ref{defFrostmanItem} in Section \ref{notationSection}, this will follow from the existence of a Frostman measure of appropriate dimension supported on $X$. 
+
+We start by recursively defining a positive function $w: \bigcup_{k = 0}^\infty \B^d_{l_k}(X_k) \to [0,1]$, following the well-known mass distribution principle. Set $w([0,1]^d) = 1$. Suppose now that $w(I)$ has been defined for all cubes $I \in \B^d_{l_{k-1}}(X_{k-1})$. Let $I \in \B^d_{l_k}(X_k)$. Consider the unique ``parent cube" $I^* \in \B^d_{l_{k-1}}(X_{k-1})$ for which $I \subset I^*$. Define
 %
 \begin{equation} \label{muRecurse}
 	w(I) = \frac{w(I^*)}{\# \B^d_{l_k}(X_k \cap I^*)}.
 \end{equation}
-%
-Observe that for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d(X_{k-1})$, 
+In other words, the mass $w(I^*)$ of $I^*$ is divided equally among its descendants. The construction ensures that for every $I^* \in \mathcal{B}_{l_{k-1}}^d(X_{k-1})$, $\# \B^d_{l_k}(X_k \cap I^*) > 0$, i.e. $I^*$ has a non-zero number of descendants, hence no mass is allowed to escape. Observe that for each index $k \geq 1$, if $I^* \in \B_{l_{k-1}}^d(X_{k-1})$, 
 %
 \begin{equation}\label{muBreakDown}
-	\sum_{I \in \B_{l_k}^d(I^* \cap X_k)} w(I) = w(I^*).
+	\sum_{I \in \B_{l_k}^d(I^* \cap X_k)} w(I) = w(I^*) \ne 0.
 \end{equation}
 %
 In particular, for each index $k$ we have
 %
 \[ \sum_{I \in \B_{l_k}^d(X_k)} w(I) = 1. \]
-%
-We now apply a standard procedure due to Caratheodory, modelled after the approach in \cite{Mattila}, Theorem 4.2, to obtain a Borel measure supported on $X$. For any $k \geq 1$ and $E \subset X$, we define an exterior measure
-%
-\[ \mu_k(E) = \inf \left\{ \sum_{i = 1}^\infty w(I_i) : E \subset \bigcup_{i = 1}^\infty I_i, I_i \in \bigcup_{j = k}^\infty \B_{l_j}^d(X_j) \right\}, \]
-%
-and then take $\mu(E) = \lim_{k \to \infty} \mu_k(E)$. It is easy to see that $\mu$ is a metric exterior measure, so all Borel sets are measurable with respect to $\mu$. For each $k$, the cubes in $\B_{l_k}^d(X_k)$ are disjoint from one another, and so any cube in $\bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$ is relatively open in $X$. In particular, this fact, combined with \eqref{muBreakDown} and the fact that $I \cap X$ is compact for any $I \in \bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$, lead to a simple proof that $\mu(I) = w(I)$ for each $I$. To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
+Let $\mathcal B$ denote the collection of all dyadic cubes in $\mathcal B_{l_k}^d(X_k)$ for all $k \geq 0$.
 
+We now apply a standard procedure due to Caratheodory, modelled after the approach in \cite[Theorem 4.2]{Mattila}, to obtain a Borel measure $\mu$ supported on $X$. For any $k \geq 1$ and any set $E \subset \RR^d$, we define an exterior measure
+%
+\begin{align*}  \mu_k(E) &= \inf \Bigl\{ \sum_{i = 1}^\infty w(I_i) : E \cap X \subset \bigcup_{i = 1}^\infty I_i, I_i \in \bigcup_{j = k}^\infty \B_{l_j}^d(X_j) \Bigr\} \\  
+&= \inf \Bigl\{ \sum_{i = 1}^\infty w(I_i) : E \cap X \subset \bigcup_{i = 1}^\infty I_i, \; \text{diam}(I_i) \leq l_k, \; I_i \in \mathcal B \Bigr\}.
+\end{align*}
+%
+Then $\mu_k(E)$ is monotone in $k$ for each set $E$. We set $\mu(E) = \lim_{k \to \infty} \mu_k(E)$. It follows from \cite[Theorem 4.2]{Mattila} that $\mu$ is Borel measure supported on $X$. Property \ref{disjointness} of Lemma \ref{discretelemma} implies $\mathcal{B}_{l_k}(X_k)$ is a family of disjoint closed cubes for each $k$. In particular, this means that $I \cap X$ is relatively open in $X$ for each $I \in \mathcal{B}$. Since $X$ is a compact set, this means that for any $I \in \mathcal{B}$, $\mu_k(I \cap X)$ is equal to the infinum of $\sum_{i = 1}^N w(I_i)$ for covers of $I \cap X$ by \emph{finitely} many sets $I_1, \dots, I_N$. Combined with the relation \eqref{muBreakDown}, this gives that $\mu_{k'}(I) = w(I)$ for all $I \in \mathcal{B}_{l_k}^d$ and all $k' \geq k$, so $\mu(I) = w(I)$ for all $I \in \mathcal{B}$. In particular, $\mu(\RR^d) = \mu([0,1]^d) = 1$ for all $k \geq 1$; hence $\mu$ is a probability measure.
+
+%a metric exterior measure, so all Borel sets are measurable with respect to $\mu$. 
+%We pause for a moment to point out that $\mu_k(\mathbb R^n) = 1$ for all $k \geq 1$; hence $\mu$ is a probability measure. Further $\mu_{k'}(I) = w(I)$ that agrees with $w$ on each $I \in \mathcal F$. For each $k$, the cubes in $\B_{l_k}^d(X_k)$ are disjoint from one another, and so any cube in $\bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$ is relatively open in $X$. In particular, this fact, combined with \eqref{muBreakDown} and the fact that $I \cap X$ is compact for any $I \in \bigcup_{k = 1}^\infty \B_{l_k}^d(X_k)$, lead to a simple proof that $\mu(I) = w(I)$ for each $I$. 
+
+To complete the proof of Theorem \ref{mainTheorem} we will show that $\mu$ is a Frostman measure of dimension $(dn - \alpha)/(n - 1)-\epsilon$ for every $\epsilon>0$. 
 \begin{lemma}\label{massSomeScales}
 	For each $k \geq 1$, if $I \in \B^d_{l_k}$,
 	%
@@ -527,9 +543,9 @@ The graph of any $C^1$ function can be locally expressed, after possibly a trans
 	\[ W = \left\{ x \in [0,1]^3 \setcolon p_3 = (x_3,f(x_3)) \in H_{p_1, p_2} \right\} \]
 	%
 	has upper Minkowski dimension at most 2. This is because $Z$ is the union of three copies of $W$, obtained by permuting coordinates. To bound the upper Minkowski dimension of $W$, we prove the estimate
-	\begin{equation}\label{boundOnWCoveringNumber}  \# \bigl(\mathcal B_{\delta}^3(W(\delta)) \bigr) \leq C \delta^{-2} \log(1/\delta) \quad \text{ for all } 0 < \delta < 1,  
+	\begin{equation}\label{boundOnWCoveringNumber}  \# \bigl(\mathcal B_{\delta}^3(W(\delta)) \bigr) \leq C \delta^{-2} \log(1/\delta) \quad \text{ for all dyadic } 0 < \delta < 1,  
 	\end{equation}  
-	where $C$ is a constant independent of $\delta$, and $\delta$ is a dyadic scale.
+	where $C$ is a constant independent of $\delta$.
 
 Fix $0 < \delta < 1$. Note that
 	\begin{equation}\label{deltaCoveringWSum}
